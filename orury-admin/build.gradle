@@ -9,6 +9,7 @@ tasks.named('jar') { //빌드할 때 jar 파일로 하겠다는 의미
 
 dependencies {
     implementation project(':orury-core')
+    implementation project(':orury-api')
     //boot start
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
