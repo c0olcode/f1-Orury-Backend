@@ -3,7 +3,6 @@ package org.fastcampus.oruryapi.domain.user.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.fastcampus.oruryapi.domain.user.converter.dto.UserDto;
-import org.fastcampus.oruryapi.domain.user.converter.request.IdRequest;
 import org.fastcampus.oruryapi.domain.user.converter.request.ProfileImageRequest;
 import org.fastcampus.oruryapi.domain.user.converter.request.UserInfoRequest;
 import org.fastcampus.oruryapi.domain.user.converter.response.MypageResponse;

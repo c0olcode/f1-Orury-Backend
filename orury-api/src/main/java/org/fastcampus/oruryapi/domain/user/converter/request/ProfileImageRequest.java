@@ -1,9 +1,11 @@
 package org.fastcampus.oruryapi.domain.user.converter.request;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.fastcampus.oruryapi.domain.user.converter.dto.UserDto;
 import org.fastcampus.oruryapi.domain.user.db.model.User;
 
-
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record ProfileImageRequest(
         Long id,
         String profileImage

@@ -24,7 +24,7 @@ public class UserController {
     private final UserService userService;
 
     @Operation(summary = "마이페이지 조회", description = "id에 해당하는 유저의 정보를 조회합니다. 닉네임, 생일, 프로필사진, 이메일, 성별이 return 됩니다. ")
-    @GetMapping("/mypage")
+    @GetMapping("/mypage/{id}")
     public ApiResponse<Object> readMypage(@PathVariable Long id){
         MypageResponse mypageResponse = userService.readMypage(id);
 
@@ -60,7 +60,7 @@ public class UserController {
     }
 
     @Operation(summary = "회원 탈퇴", description = "id에 해당하는 회원을 탈퇴합니다. ")
-    @DeleteMapping("/user")
+    @DeleteMapping("/user/{id}")
     public ApiResponse<Object> deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
 
