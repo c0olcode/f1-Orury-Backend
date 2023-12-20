@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.fastcampus.oruryapi.base.converter.ApiResponse;
-import org.fastcampus.oruryapi.domain.user.converter.request.IdRequest;
 import org.fastcampus.oruryapi.domain.user.converter.request.ProfileImageRequest;
 import org.fastcampus.oruryapi.domain.user.converter.request.UserInfoRequest;
 import org.fastcampus.oruryapi.domain.user.converter.response.MypageResponse;
@@ -13,7 +12,6 @@ import org.fastcampus.oruryapi.domain.user.util.UserMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor

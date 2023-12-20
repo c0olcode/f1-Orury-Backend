@@ -14,7 +14,8 @@ public record NoticeDto(
         Long id,
         String title,
         String content,
-        AdminDto admin,
+        String images,
+        AdminDto admindto,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
@@ -22,7 +23,8 @@ public record NoticeDto(
             Long id,
             String title,
             String content,
-            AdminDto admin,
+            String images,
+            AdminDto admindto,
             LocalDateTime createdAt,
             LocalDateTime updatedAt
     ) {
@@ -30,7 +32,8 @@ public record NoticeDto(
                 id,
                 title,
                 content,
-                admin,
+                images,
+                admindto,
                 createdAt,
                 updatedAt
         );
@@ -41,17 +44,19 @@ public record NoticeDto(
                 entity.getId(),
                 entity.getTitle(),
                 entity.getContent(),
+                entity.getImages(),
                 AdminDto.from(entity.getAdmin()),
                 entity.getCreatedAt(),
                 entity.getUpdatedAt()
         );
     }
 
-    public Notice toEntity(Admin admin) {
+    public Notice toEntity() {
         return Notice.of(
                 title,
                 content,
-                admin
+                images,
+                admindto.toEntity()
         );
     }
 }

@@ -3,11 +3,13 @@ package org.fastcampus.oruryadmin.domain.admin.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.fastcampus.oruryadmin.domain.admin.converter.dto.AdminDto;
+import org.fastcampus.oruryadmin.domain.notice.util.AdminErrorCode;
 import org.fastcampus.oruryadmin.global.security.dto.login.request.LoginRequest;
 import org.fastcampus.oruryadmin.global.security.dto.login.response.LoginResponse;
 import org.fastcampus.oruryadmin.domain.admin.db.repository.AdminRepository;
 import org.fastcampus.oruryadmin.global.security.jwt.JwtToken;
 import org.fastcampus.oruryadmin.global.security.jwt.JwtTokenProvider;
+import org.fastcampus.oruryapi.global.error.BusinessException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -34,7 +36,7 @@ public class AdminService {
     public AdminDto findAdminById(Long id) {
         return adminRepository.findById(id)
                 .map(AdminDto::from)
-                .orElseThrow();
+                .orElseThrow(()->new BusinessException(AdminErrorCode.NOT_FOUND));
     }
 
     public LoginResponse login(LoginRequest request) {

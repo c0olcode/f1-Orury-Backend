@@ -25,17 +25,21 @@ public class Notice extends AuditingField {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @Column(name = "images")
+    private String images;
+
     //추후에 추가 예정
     @ManyToOne(optional = false)
     private Admin admin;
 
-    private Notice(String title, String content, Admin admin) {
+    private Notice(String title, String content, String images, Admin admin) {
         this.title = title;
         this.content = content;
+        this.images = images;
         this.admin = admin;
     }
 
-    public static Notice of(String title, String content, Admin admin) {
-        return new Notice(title, content, admin);
+    public static Notice of(String title, String content, String images, Admin admin) {
+        return new Notice(title, content, images, admin);
     }
 }
